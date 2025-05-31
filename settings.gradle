@@ -1,0 +1,11 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url = 'https://maven.aliyun.com/repository/central' }
+        maven { url = 'https://maven.aliyun.com/repository/gradle-plugin' }
+    }
+}
+ext['spring-security.version']='6.5.0'
+rootProject.name = 'mi-shop-site'
+include 'code-generator'

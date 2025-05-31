@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.tst.mall'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url = 'https://maven.aliyun.com/repository/jcenter' }
+    maven { url = 'https://maven.aliyun.com/repository/google' }
+    maven { url = 'https://maven.aliyun.com/repository/central' }
+}
+
+dependencies {
+    // MyBatis Plus 生成器
+    implementation 'com.baomidou:mybatis-plus-generator:3.5.3.1'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.3.1'
+    
+    // 模板引擎
+    implementation 'org.freemarker:freemarker:2.3.32'
+    
+    // MySQL 驱动
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    
+    // Spring Boot 相关依赖
+    implementation 'org.springframework.boot:spring-boot-starter:3.0.5'
+    
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+} 
