@@ -11,7 +11,7 @@ import lombok.Setter;
 
 /**
  * <p>
- * 
+ * 商品系列表
  * </p>
  *
  * @author gxq
@@ -19,33 +19,27 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("tb_mall_ad")
-@Schema(name = "Ad", description = "$!{table.comment}")
-public class Ad implements Serializable {
+@TableName("tb_mall_goods_series")
+@Schema(name = "GoodsSeries", description = "$!{table.comment}")
+public class GoodsSeries implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Schema(description = "广告ID")
-    @TableId(value = "ad_id", type = IdType.AUTO)
-    private Long adId;
+    @Schema(description = "系列ID")
+    @TableId(value = "series_id", type = IdType.AUTO)
+    private Long seriesId;
 
-    @Schema(description = "广告标题")
-    private String adTitle;
+    @Schema(description = "系列名称")
+    private String seriesName;
 
-    @Schema(description = "广告图片")
-    private String adImage;
+    @Schema(description = "系列描述")
+    private String seriesDesc;
 
-    @Schema(description = "跳转链接")
-    private String adLink;
-
-    @Schema(description = "广告位置（如首页顶部、侧边栏等）")
-    private String adPosition;
-
-    @Schema(description = "排序")
-    private Integer adSort;
+    @Schema(description = "系列主图")
+    private String seriesImage;
 
     @Schema(description = "状态 1-显示 0-隐藏")
-    private Byte adStatus;
+    private Byte seriesStatus;
 
     @Schema(description = "是否删除 0-未删除 1-已删除")
     private Byte deleteFlag;

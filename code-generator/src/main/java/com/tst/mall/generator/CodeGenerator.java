@@ -13,7 +13,29 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
         List<String> tables = new ArrayList<>();
-        tables.add("tb_mall_spec");
+        tables.add("tb_mall_ad");
+        tables.add("tb_mall_banner");
+        tables.add("tb_mall_coupon");
+        tables.add("tb_mall_goods_category");
+
+        tables.add("tb_mall_goods_category_relation");
+        tables.add("tb_mall_goods_model");
+        tables.add("tb_mall_goods_series");
+        tables.add("tb_mall_goods_sku");
+
+        tables.add("tb_mall_order");
+        tables.add("tb_mall_order_item");
+        tables.add("tb_mall_promotion");
+        tables.add("tb_mall_promotion_goods");
+
+        tables.add("tb_mall_refund_detail");
+        tables.add("tb_mall_return_order");
+        tables.add("tb_mall_sku_spec_relation");
+        tables.add("tb_mall_spec_value");
+
+        tables.add("tb_mall_user");
+        tables.add("tb_mall_user_coupon");
+
 
         generate("jdbc:mysql://localhost:3306/mi_shop?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai",
                 "root", "12345678", tables);
@@ -41,7 +63,7 @@ public class CodeGenerator {
         FastAutoGenerator.create(dbUrl, dbUser, dbPwd)
                 .globalConfig(builder -> {
                     builder.author("gxq")
-                            .enableSwagger()
+                            .enableSpringdoc()
                             .outputDir(finalMainProjectPath + "/src/main/java")
                             .build();
                 })
@@ -61,7 +83,7 @@ public class CodeGenerator {
                 .strategyConfig(builder -> {
                     builder.addInclude(tables)
                             .addTablePrefix("tb_mall")
-                            .entityBuilder()
+                            .entityBuilder().enableFileOverride()
                             .naming(NamingStrategy.underline_to_camel)
                             .enableLombok()
                             .enableRemoveIsPrefix()

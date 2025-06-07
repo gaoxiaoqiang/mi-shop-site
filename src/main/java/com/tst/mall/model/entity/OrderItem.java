@@ -3,74 +3,73 @@ package com.tst.mall.model.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * <p>
- * 
+ * 订单商品详情表
  * </p>
  *
  * @author gxq
- * @since 2025-05-28
+ * @since 2025-06-05
  */
 @Getter
 @Setter
-@ToString
 @TableName("tb_mall_order_item")
+@Schema(name = "OrderItem", description = "$!{table.comment}")
 public class OrderItem implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 订单商品详情ID
-     */
+    @Schema(description = "订单商品详情ID")
     @TableId(value = "order_item_id", type = IdType.AUTO)
     private Long orderItemId;
 
-    /**
-     * 订单ID
-     */
+    @Schema(description = "订单ID")
     private Long orderId;
 
-    /**
-     * 商品ID
-     */
-    private Long goodsId;
+    @Schema(description = "商品系列ID")
+    private Long seriesId;
 
-    /**
-     * 商品名称
-     */
-    private String goodsName;
+    @Schema(description = "商品型号ID")
+    private Long modelId;
 
-    /**
-     * 商品主图
-     */
+    @Schema(description = "商品SKU ID")
+    private Long skuId;
+
+    @Schema(description = "型号名称")
+    private String modelName;
+
+    @Schema(description = "SKU名称")
+    private String skuName;
+
+    @Schema(description = "商品主图")
     private String goodsMainImage;
 
-    /**
-     * 商品单价
-     */
-    private BigDecimal goodsPrice;
+    @Schema(description = "原始单价")
+    private BigDecimal originalPrice;
 
-    /**
-     * 购买数量
-     */
+    @Schema(description = "实际单价（考虑活动后）")
+    private BigDecimal actualPrice;
+
+    @Schema(description = "购买数量")
     private Integer goodsNum;
 
-    /**
-     * 该商品总价
-     */
+    @Schema(description = "该商品总价")
     private BigDecimal goodsTotalPrice;
 
-    /**
-     * 是否删除 0-未删除 1-已删除
-     */
+    @Schema(description = "参与的活动ID")
+    private Long promotionId;
+
+    @Schema(description = "活动优惠金额")
+    private BigDecimal promotionAmount;
+
+    @Schema(description = "是否删除 0-未删除 1-已删除")
     private Byte deleteFlag;
 
     private LocalDateTime createTime;

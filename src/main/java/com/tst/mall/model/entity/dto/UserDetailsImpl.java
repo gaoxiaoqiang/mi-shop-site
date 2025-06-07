@@ -34,7 +34,7 @@ public class UserDetailsImpl implements UserDetails {
 
     public UserDetailsImpl(User user){
         this.password= user.getUserPassword();
-        this.username= user.getUsername();
+        this.username= user.getUserName();
         BeanUtils.copyProperties(user,this);
 
     }

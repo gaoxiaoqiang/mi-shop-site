@@ -11,7 +11,7 @@ import lombok.Setter;
 
 /**
  * <p>
- * 商品规格值表
+ * SKU规格关系表
  * </p>
  *
  * @author gxq
@@ -19,21 +19,24 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("tb_mall_spec_value")
-@Schema(name = "SpecValue", description = "$!{table.comment}")
-public class SpecValue implements Serializable {
+@TableName("tb_mall_sku_spec_relation")
+@Schema(name = "SkuSpecRelation", description = "$!{table.comment}")
+public class SkuSpecRelation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Schema(description = "规格值ID")
-    @TableId(value = "value_id", type = IdType.AUTO)
-    private Long valueId;
+    @Schema(description = "关系ID")
+    @TableId(value = "relation_id", type = IdType.AUTO)
+    private Long relationId;
+
+    @Schema(description = "SKU ID")
+    private Long skuId;
 
     @Schema(description = "规格ID")
     private Long specId;
 
-    @Schema(description = "规格值名称")
-    private String valueName;
+    @Schema(description = "规格值ID")
+    private Long valueId;
 
     private LocalDateTime createTime;
 

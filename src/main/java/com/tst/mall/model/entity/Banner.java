@@ -19,33 +19,27 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("tb_mall_ad")
-@Schema(name = "Ad", description = "$!{table.comment}")
-public class Ad implements Serializable {
+@TableName("tb_mall_banner")
+@Schema(name = "Banner", description = "$!{table.comment}")
+public class Banner implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Schema(description = "广告ID")
-    @TableId(value = "ad_id", type = IdType.AUTO)
-    private Long adId;
+    @Schema(description = "轮播ID")
+    @TableId(value = "banner_id", type = IdType.AUTO)
+    private Long bannerId;
 
-    @Schema(description = "广告标题")
-    private String adTitle;
-
-    @Schema(description = "广告图片")
-    private String adImage;
+    @Schema(description = "轮播图片")
+    private String bannerImage;
 
     @Schema(description = "跳转链接")
-    private String adLink;
-
-    @Schema(description = "广告位置（如首页顶部、侧边栏等）")
-    private String adPosition;
+    private String bannerLink;
 
     @Schema(description = "排序")
-    private Integer adSort;
+    private Integer bannerSort;
 
     @Schema(description = "状态 1-显示 0-隐藏")
-    private Byte adStatus;
+    private Byte bannerStatus;
 
     @Schema(description = "是否删除 0-未删除 1-已删除")
     private Byte deleteFlag;

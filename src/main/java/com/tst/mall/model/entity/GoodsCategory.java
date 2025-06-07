@@ -4,61 +4,50 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * <p>
- * 
+ * 商品分类表，支持一二级分类，二级分类有图片
  * </p>
  *
  * @author gxq
- * @since 2025-05-28
+ * @since 2025-06-05
  */
 @Getter
 @Setter
-@ToString
 @TableName("tb_mall_goods_category")
+@Schema(name = "GoodsCategory", description = "$!{table.comment}")
 public class GoodsCategory implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 分类ID
-     */
+    @Schema(description = "分类ID")
     @TableId(value = "category_id", type = IdType.AUTO)
     private Long categoryId;
 
-    private  Long parentId;
+    @Schema(description = "父分类ID，0为一级分类")
+    private Long parentId;
 
-    /**
-     * 分类名称
-     */
+    @Schema(description = "分类名称")
     private String categoryName;
 
-    private  Long categoryImage;
+    @Schema(description = "分类图片URL")
+    private String categoryImage;
 
-    /**
-     * 排序
-     */
+    @Schema(description = "排序")
     private Integer categorySort;
 
-    /**
-     * 状态 1-显示 0-隐藏
-     */
+    @Schema(description = "状态 1-显示 0-隐藏")
     private Byte categoryStatus;
 
-    /**
-     * 是否删除 0-未删除 1-已删除
-     */
+    @Schema(description = "是否删除 0-未删除 1-已删除")
     private Byte deleteFlag;
 
 
